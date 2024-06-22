@@ -1,0 +1,60 @@
+<%- include('layout/header')%>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>Admin Dashboard</h1>
+          <a href="add_employees"><button class="btn btn-primary btn-lg">Add Employees</button></a>
+        </div>
+        <div class="row my-4">
+            <div class="col-lg-12">
+               
+             <div class="table-responsive">
+                <%if(employees!=''){%>
+                <table class="table table-stripped text-center">
+                <thead>
+                    <tr class="table-dark"> 
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Title</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>City</th>
+                        <th>Age</th>
+                        <th>Salary</th>
+                        <th colspan="2">Operations</th>
+                      
+                    </tr>
+                </thead>
+                <tbody>
+                    <% employees.forEach((row,index)=>{%>
+                        <tr>
+                            <td><%=index%></td>
+                            <td><%= row.name%></td>
+                            <td><%= row.gender%></td>
+                            <td><%= row.title%></td>
+                            <td><%= row.email%></td>
+                            <td><%= row.phone%></td>
+                            <td><%= row.city%></td>
+                            <td><%= row.age%></td>
+                  
+                            <td><%= row.salary%></td>
+                            <td>
+                                <a href="/edit/<%= row._id%>">Edit</a>
+                            </td>
+                            <td>
+                                <a href="/delete/<%= row._id%>">Delete</a>
+                            </td>
+                         </tr>
+                        <%})%>
+                </tbody>
+                </table>
+                <%}else{%>
+                    <h1>No records found</h1>
+                    <%}%>
+             </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('layout/footer')%>

@@ -1,0 +1,77 @@
+<%- include('layout/header')%>
+<div class="container">
+    <div class="row">
+      
+        <div class="col-lg-6 mx-auto mt-4">
+            <div class="card shadow">
+                <div class="card-header bg-success">
+                    <h5 class="text-light">Edit Employee (<%= employee.name%>)</h5>
+                </div>
+                <div class="card-body p-4">
+                    <form action="/update/<%= employee._id%>" method="post" id="edit-form">
+                        <div class="mb-3">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" 
+                            value="<%= employee.name%>"
+                            class="form-control form-control-lg" placeholder="Enter name" required/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email">Email</label>
+                            <input type="email"
+                            value="<%= employee.email%>"
+                            name="email" class="form-control form-control-lg" placeholder="Enter email" required/>
+                            
+                        </div>
+                        <div class="mb-3">
+                            <label for="age">Phone</label>
+                            <input type="number" 
+                            value="<%= employee.phone%>"
+                            name="phone" class="form-control form-control-lg" placeholder="Enter phone" required/>
+                            
+                        </div>
+                        <div class="mb-3">
+                            <label for="city">City</label>
+                            <input type="text" 
+                            value="<%= employee.city%>"
+                            name="city" class="form-control form-control-lg" placeholder="Enter city" required/>
+                            
+                        </div>
+                        <div class="mb-3">
+                            <label for="title">Title</label>
+                            <input type="text"
+                            value="<%= employee.title%>"
+                            name="title" class="form-control form-control-lg" placeholder="Enter title" required/>
+                            
+                        </div>
+                        <div class="mb-3">
+                            <label for="age">age</label>
+                            <input type="number" 
+                            value="<%= employee.age%>"
+                            name="age" class="form-control form-control-lg" placeholder="Enter age" required/>
+                            
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="gender">Gender</label><br/>
+                            <input type="radio" id="male" name="gender"  value="male">
+                            <label for="male">Male</label><br>   
+                            <input type="radio" id="female" name="gender"  value="female">
+                            <label for="female">Female</label><br>                            
+                        </div>
+                        <div class="mb-3">
+                            <label for="salary">Salary</label>
+                            <input type="number"
+                            value="<%= employee.salary%>"
+                            name="salary" class="form-control form-control-lg" placeholder="Enter salary" required/>
+                            
+                        </div>
+                        <div class="mb-3 d-grid">
+                            <input type="submit" name="submit" value="Update Employee" class="btn btn-success btn-lg"/>
+                        </div>
+                    </form> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('layout/footer')%>
